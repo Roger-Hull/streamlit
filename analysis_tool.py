@@ -7,12 +7,12 @@ header = st.container()
 features = st.container()
 run = st.container()
 dataset = st.container()
-modelTraining = st.container()
+results = st.container()
 
 
-with st.sidebar:
-    st.sidebar.button('Analysis Tool')
-    st.sidebar.button('Methodology')
+#with st.sidebar:
+#    st.sidebar.button('Analysis Tool')
+#    st.sidebar.button('Methodology')
 
 with header:
     st.title('Technical and Sentiment Stock Trading Algorithm')
@@ -20,7 +20,7 @@ with header:
     
 with features:
     st.subheader('Select Your Features')
-    col1, col2, col3, col4, col5 = st.columns(5)
+    col1, col2, col3, col4, col5, col6 = st.columns(6)
     
     with col1:
         st.write("Date Range")
@@ -43,9 +43,30 @@ with features:
         ('MACD','SVM'))
         st.write('You selected:',option)
         
+    with col6:
+        option = st.write('Select your stock',)
+        st.write('You selected:',option)
+        
 with run:
     st.button('Run My Trading Algoritm')
 
 with dataset:
     df = pd.read_csv('aapl.csv')
     st.line_chart(data=df['close'], width=0, height=0, use_container_width=True)
+    
+with results:
+    st.header('Trading Algorithm Results')
+    col6, col7, col8, col9 = st.columns(4)
+              
+    with col6:
+              st.write('Cumulative Return')
+              st.write("")
+    with col7:
+              st.write('Volatility')
+              st.write("")
+    with col8:
+              st.write('Sharpe Ratio')
+              st.write('')
+    with col9:
+              st.write('Sortino Ratio')
+              st.write('')
