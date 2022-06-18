@@ -1,14 +1,23 @@
+import os
 import streamlit as st
 import pandas as pd
 import numpy as np
 import plotly.express as px
+
+#alpaca_api_key = os.getenv("ALPACA_API_KEY")
+#alpaca_secret_key = os.getenv("ALPACA_SECRET_KEY")
+
+#api = tradeapi.REST(
+#    alpaca_api_key,
+#    alpaca_secret_key,
+#    api_version = "v2"
+#)
 
 header = st.container()
 features = st.container()
 run = st.container()
 dataset = st.container()
 results = st.container()
-
 
 #with st.sidebar:
 #    st.sidebar.button('Analysis Tool')
@@ -23,7 +32,8 @@ with features:
     col1, col2, col3, col4, col5, col6 = st.columns(6)
     
     with col1:
-        st.write("Date Range")
+        date = st.selectbox('Date Range',('Dot Com Bubble','2008 Crash','Covid'))
+        st.write('You Selected:',date)
         
     with col2:
         if st.checkbox('Use NYT Sentiment Analysis?'):
@@ -41,18 +51,22 @@ with features:
         option = st.selectbox(
         'Select your trading strategy',
         ('MACD','SVM'))
-        st.write('You selected:',option)
         
     with col6:
-        option = st.write('Select your stock',)
-        st.write('You selected:',option)
+        stock = st.text_input('Select your stock','TSLA')
         
-with run:
-    st.button('Run My Trading Algoritm')
+#with run:
+  #  if st.button('Run My Trading Algoritm'):
+        
 
 with dataset:
     df = pd.read_csv('aapl.csv')
-    st.line_chart(data=df['close'], width=0, height=0, use_container_width=True)
+    st.line_chart(
+        data=df['close'], 
+        width=0, 
+        height=0, 
+        use_container_width=True
+        )
     
 with results:
     st.header('Trading Algorithm Results')
