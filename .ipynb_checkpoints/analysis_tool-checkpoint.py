@@ -52,38 +52,11 @@ with features:
             st.write(ticker, date, nlp, strategy)
     
     
-   # st.subheader('Select Your Features')
-    #col1, col2, col3, col4, col5, col6 = st.columns(6) #creating columns for features
+#with run:
+    #call Yahoo finance to get updated ticker data. #MACD, and SVM fitting.
+    #Backtesting
+    #produce an F1 score output as well?
     
-    #with col1:
-     #   date = st.selectbox('Date Range',('Dot Com Bubble','2008 Crash','Covid'))
-      #  st.write('You Selected:',date)
-        
-    #with col2:
-     #   if st.checkbox('Use NYT Sentiment Analysis?'):
-      #      st.write('Sentiment Analysis has been added to the chart')
-        
-   # with col3:
-    #    st.write("EMA Window")
-     #   st.slider('Days',0,60,5) #min: 0, max:60, def:5
-        
-   # with col4:
-    #    st.write('SMA Window')
-     #   st.slider('Days',0,180,40) #min: 0, max:180, def:40
-        
-   # with col5:
-    #    option = st.selectbox(
-     #   'Select your trading strategy',
-      #  ('MACD','SVM'))
-        
-   # with col6:
-    #    stock = st.text_input('Select your stock','TSLA')
-
-#Calling the run container
-        
-with run:
-    #if st.button('Run My Trading Algoritm'):
-    st.write('place holder')
 
 with dataset:
     df = pd.read_csv('aapl.csv')

@@ -52,8 +52,10 @@ with features:
             st.write(ticker, date, nlp, strategy)
     
     
-with run:
-    df = pd.read_csv(ticker)
+#with run:
+    #call Yahoo finance to get updated ticker data. #MACD, and SVM fitting.
+    #Backtesting
+    #produce an F1 score output as well?
     
 
 with dataset:
